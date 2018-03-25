@@ -22,10 +22,10 @@ exports.handler = function (event, context, callback) {
 	}).promise()
 		.then(data => {
 			console.log("Sent SMS to", receiverNumber);
-			callback(null, {...event, status: 'Successful'});
+			callback(null, data);
 		})
 		.catch(err => {
 			console.log("Failed to send SMS", err);
-			callback(err, {...event, status: 'Failed'});
+			callback(err);
 		});
 }
